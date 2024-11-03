@@ -8,3 +8,28 @@ Provided the availability of mentees and mentors, fix a time for a mentor to hav
 ## Abstract Datatypes
 - Person
 - Group
+
+## Development Setup
+The project uses `ruff`, `mypy`, and `pre-commit` for linting, formatting, type-checking, and code consistency checks. You can install all of these tools using `uv tool install` and run them on the project where the respective tool configurations are stored in the `pyproject.toml`.
+
+Setup the virtual environment:
+```
+uv venv
+```
+
+Setup testing:
+```
+uv pip install -e .[test]
+```
+
+Setup pre-commit:
+```
+pre-commit autoupdate
+pre-commit install
+pre-commit run -a
+```
+
+## Program Usage
+```
+uv run src/mentor_match
+```

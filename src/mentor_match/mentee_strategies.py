@@ -2,35 +2,31 @@
 
 from dataclasses import dataclass
 
-from .models import Person
+from mentor_match.models import Group, Person
 
 
 @dataclass
 class SmallestGroupStrategy:
     """Selects meeting times for mentees based on smallest available group."""
 
-    mentors: list[Person]
+    groups: list[Group]
     mentees: list[Person]
 
-    def __post_init__(self) -> None:
-        """Instantiates fields related to the strategy."""
-        self.meeting_times = {m.meeting_time: 0 for m in self.mentors}
-
-    def _get_smallest_group(self, mentee: Person) -> str:
-        smallest = ""
-        for t in self.meeting_times:
-            if t not in mentee.availability:
+    def _get_smallest_group(self, mentee: Person) -> Group | None:
+        size = float("inf")
+        smallest = None
+        for g in self.groups:
+            if g.meeting_time not in mentee.availability:
                 continue
-            if smallest == "" or (self.meeting_times[t] < self.meeting_times[smallest]):
-                smallest = t
+            if len(g.mentees) < size:
+                smallest = g
+                size = len(g.mentees)
 
         return smallest
 
-    def set_meeting_times(self) -> None:
-        """Sets the meeting times for the mentees."""
+    def assign_mentees(self) -> None:
+        """Assigns mentees to their mentor groups."""
         for m in self.mentees:
-            smallest = self._get_smallest_group(m)
-            print(smallest)
-            if smallest:
-                self.meeting_times[smallest] += 1
-                m.meeting_time = smallest
+            group = self._get_smallest_group(m)
+            if group:
+                group.mentees.append(m)

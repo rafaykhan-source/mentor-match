@@ -4,7 +4,7 @@ import ast
 import csv
 from dataclasses import dataclass
 
-from .models import Person
+from mentor_match.models import Person
 
 
 @dataclass
