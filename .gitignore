@@ -1,0 +1,9 @@
+__pycache__/
+*.lock
+*.py[oc]
+build/
+dist/
+wheels/
+results/
+*.egg-info
+.python-version
