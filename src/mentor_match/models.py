@@ -3,7 +3,7 @@
 from dataclasses import dataclass, field
 
 
-@dataclass
+@dataclass(frozen=True)
 class Person:
     """A class wrapping information associated with a person."""
 
@@ -11,6 +11,19 @@ class Person:
     last_name: str
     email: str
     availability: list[str]
+
+    def __eq__(self, other: object) -> bool:
+        """Returns whether the two instances are equal.
+
+        Args:
+            other (Self): The other instance.
+
+        Returns:
+            bool: Whether the two instances are equal.
+        """
+        if isinstance(other, Person):
+            return self.email == other.email
+        return False
 
     def __str__(self) -> str:
         """Returns a human readable string representation of the object.

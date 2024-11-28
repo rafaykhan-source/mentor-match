@@ -1,0 +1,276 @@
+[
+  {
+    "first_name": "Rose",
+    "last_name": "Reyes",
+    "email": "RoseReyes@email.com",
+    "availability": [
+      "6:00-7:00pm F",
+      "6:00-7:00pm Sun",
+      "7:00-8:00pm M",
+      "8:00-9:00pm Th",
+      "5:00-6:00pm F",
+      "5:00-6:00pm Th"
+    ]
+  },
+  {
+    "first_name": "Lauren",
+    "last_name": "Priebe",
+    "email": "LaurenPriebe@email.com",
+    "availability": [
+      "8:00-9:00pm M",
+      "6:00-7:00pm Th",
+      "7:00-8:00pm Th",
+      "7:00-8:00pm F",
+      "7:00-8:00pm T",
+      "6:00-7:00pm Sun"
+    ]
+  },
+  {
+    "first_name": "Kristin",
+    "last_name": "Powers",
+    "email": "KristinPowers@email.com",
+    "availability": [
+      "7:00-8:00pm W",
+      "8:00-9:00pm Th",
+      "5:00-6:00pm F",
+      "7:00-8:00pm T",
+      "8:00-9:00pm T",
+      "3:00-4:00pm Sun"
+    ]
+  },
+  {
+    "first_name": "Kaila",
+    "last_name": "Sedore",
+    "email": "KailaSedore@email.com",
+    "availability": [
+      "5:00-6:00pm F",
+      "8:00-9:00pm W",
+      "5:00-6:00pm W",
+      "6:00-7:00pm Th"
+    ]
+  },
+  {
+    "first_name": "Zoila",
+    "last_name": "Hudkins",
+    "email": "ZoilaHudkins@email.com",
+    "availability": [
+      "7:00-8:00pm M",
+      "8:00-9:00pm W",
+      "7:00-8:00pm T",
+      "3:00-4:00pm Sun"
+    ]
+  },
+  {
+    "first_name": "Juan",
+    "last_name": "Nuzback",
+    "email": "JuanNuzback@email.com",
+    "availability": [
+      "7:00-8:00pm M",
+      "6:00-7:00pm F",
+      "7:00-8:00pm Th",
+      "7:00-8:00pm T",
+      "7:00-8:00pm W"
+    ]
+  },
+  {
+    "first_name": "Donna",
+    "last_name": "Lucero",
+    "email": "DonnaLucero@email.com",
+    "availability": [
+      "8:00-9:00pm F",
+      "7:00-8:00pm W",
+      "6:00-7:00pm Sun",
+      "6:00-7:00pm T",
+      "5:00-6:00pm M",
+      "6:00-7:00pm W"
+    ]
+  },
+  {
+    "first_name": "Stephen",
+    "last_name": "Guilliam",
+    "email": "StephenGuilliam@email.com",
+    "availability": [
+      "8:00-9:00pm W",
+      "7:00-8:00pm Sun",
+      "8:00-9:00pm M",
+      "6:00-7:00pm T"
+    ]
+  },
+  {
+    "first_name": "Steven",
+    "last_name": "Headrick",
+    "email": "StevenHeadrick@email.com",
+    "availability": [
+      "6:00-7:00pm F",
+      "4:00-5:00pm Sun",
+      "8:00-9:00pm Sun",
+      "7:00-8:00pm Th",
+      "5:00-6:00pm F",
+      "8:00-9:00pm Th"
+    ]
+  },
+  {
+    "first_name": "Tiana",
+    "last_name": "Minard",
+    "email": "TianaMinard@email.com",
+    "availability": [
+      "4:00-5:00pm Sun",
+      "5:00-6:00pm Th",
+      "5:00-6:00pm M",
+      "7:00-8:00pm F",
+      "7:00-8:00pm T"
+    ]
+  },
+  {
+    "first_name": "Johnny",
+    "last_name": "Higdon",
+    "email": "JohnnyHigdon@email.com",
+    "availability": ["7:00-8:00pm F", "3:00-4:00pm Sun", "5:00-6:00pm F"]
+  },
+  {
+    "first_name": "Patricia",
+    "last_name": "Atkison",
+    "email": "PatriciaAtkison@email.com",
+    "availability": [
+      "7:00-8:00pm Th",
+      "6:00-7:00pm T",
+      "5:00-6:00pm W",
+      "8:00-9:00pm Th",
+      "7:00-8:00pm T",
+      "8:00-9:00pm F"
+    ]
+  },
+  {
+    "first_name": "Michael",
+    "last_name": "Bowman",
+    "email": "MichaelBowman@email.com",
+    "availability": ["6:00-7:00pm M", "5:00-6:00pm Sun", "8:00-9:00pm M"]
+  },
+  {
+    "first_name": "William",
+    "last_name": "Matthews",
+    "email": "WilliamMatthews@email.com",
+    "availability": [
+      "5:00-6:00pm F",
+      "7:00-8:00pm F",
+      "8:00-9:00pm Th",
+      "6:00-7:00pm Sun",
+      "4:00-5:00pm Sun"
+    ]
+  },
+  {
+    "first_name": "Joaquin",
+    "last_name": "Post",
+    "email": "JoaquinPost@email.com",
+    "availability": [
+      "5:00-6:00pm Sun",
+      "7:00-8:00pm Th",
+      "8:00-9:00pm Th",
+      "5:00-6:00pm Th",
+      "8:00-9:00pm T"
+    ]
+  },
+  {
+    "first_name": "Glenn",
+    "last_name": "Shanks",
+    "email": "GlennShanks@email.com",
+    "availability": [
+      "8:00-9:00pm Th",
+      "3:00-4:00pm Sun",
+      "5:00-6:00pm M",
+      "8:00-9:00pm M",
+      "5:00-6:00pm Th"
+    ]
+  },
+  {
+    "first_name": "Mary",
+    "last_name": "Archer",
+    "email": "MaryArcher@email.com",
+    "availability": [
+      "7:00-8:00pm M",
+      "7:00-8:00pm W",
+      "6:00-7:00pm Th",
+      "5:00-6:00pm M",
+      "8:00-9:00pm Sun",
+      "7:00-8:00pm Th"
+    ]
+  },
+  {
+    "first_name": "Carl",
+    "last_name": "Baltazar",
+    "email": "CarlBaltazar@email.com",
+    "availability": [
+      "6:00-7:00pm M",
+      "4:00-5:00pm Sun",
+      "8:00-9:00pm T",
+      "7:00-8:00pm Sun",
+      "8:00-9:00pm M"
+    ]
+  },
+  {
+    "first_name": "Anna",
+    "last_name": "Stone",
+    "email": "AnnaStone@email.com",
+    "availability": ["6:00-7:00pm Sun", "7:00-8:00pm Th", "7:00-8:00pm F"]
+  },
+  {
+    "first_name": "Edward",
+    "last_name": "Sherman",
+    "email": "EdwardSherman@email.com",
+    "availability": [
+      "5:00-6:00pm Sun",
+      "7:00-8:00pm Sun",
+      "8:00-9:00pm Sun",
+      "6:00-7:00pm M",
+      "5:00-6:00pm F",
+      "7:00-8:00pm T"
+    ]
+  },
+  {
+    "first_name": "Joyce",
+    "last_name": "Johnson",
+    "email": "JoyceJohnson@email.com",
+    "availability": ["7:00-8:00pm Sun", "6:00-7:00pm M", "3:00-4:00pm Sun"]
+  },
+  {
+    "first_name": "Edward",
+    "last_name": "William",
+    "email": "EdwardWilliam@email.com",
+    "availability": [
+      "7:00-8:00pm M",
+      "3:00-4:00pm Sun",
+      "5:00-6:00pm Th",
+      "6:00-7:00pm W"
+    ]
+  },
+  {
+    "first_name": "Patty",
+    "last_name": "Marcus",
+    "email": "PattyMarcus@email.com",
+    "availability": [
+      "5:00-6:00pm Sun",
+      "8:00-9:00pm M",
+      "8:00-9:00pm W",
+      "7:00-8:00pm Th",
+      "6:00-7:00pm Th",
+      "6:00-7:00pm Sun"
+    ]
+  },
+  {
+    "first_name": "Timothy",
+    "last_name": "Escalante",
+    "email": "TimothyEscalante@email.com",
+    "availability": [
+      "8:00-9:00pm Sun",
+      "8:00-9:00pm M",
+      "7:00-8:00pm M",
+      "4:00-5:00pm Sun"
+    ]
+  },
+  {
+    "first_name": "Ashley",
+    "last_name": "Fisher",
+    "email": "AshleyFisher@email.com",
+    "availability": ["5:00-6:00pm Sun", "5:00-6:00pm W", "6:00-7:00pm Sun"]
+  }
+]

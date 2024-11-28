@@ -4,6 +4,7 @@ __pycache__/
 build/
 dist/
 wheels/
-results/
+data/placements
+data/updates
 *.egg-info
 .python-version

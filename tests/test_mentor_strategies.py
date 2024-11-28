@@ -1,14 +1,8 @@
-from mentor_match.dataserver import DataServer
 from mentor_match.mentor_strategies import FrequencyStrategy, RandomStrategy
-from mentor_match.models import Group
 
 
-def test_mentor_time_assignments_not_empty_random() -> None:
-    server = DataServer()
-
-    mentors = server.read_entries("data/mentors.csv")
-    mentees = server.read_entries("data/mentees.csv")
-    groups = [Group(m) for m in mentors]
+def test_mentor_time_assignments_not_empty_random(prepared_people) -> None:
+    mentors, mentees, groups = prepared_people
 
     r = RandomStrategy(groups, mentees)
     r.set_meeting_times()
@@ -17,12 +11,8 @@ def test_mentor_time_assignments_not_empty_random() -> None:
         assert g.meeting_time != ""
 
 
-def test_mentor_time_assignments_from_availability_random() -> None:
-    server = DataServer()
-
-    mentors = server.read_entries("data/mentors.csv")
-    mentees = server.read_entries("data/mentees.csv")
-    groups = [Group(m) for m in mentors]
+def test_mentor_time_assignments_from_availability_random(prepared_people) -> None:
+    mentors, mentees, groups = prepared_people
 
     r = RandomStrategy(groups, mentees)
     r.set_meeting_times()
@@ -31,12 +21,8 @@ def test_mentor_time_assignments_from_availability_random() -> None:
         assert g.meeting_time in g.mentor.availability
 
 
-def test_mentor_time_assignments_not_empty_frequency() -> None:
-    server = DataServer()
-
-    mentors = server.read_entries("data/mentors.csv")
-    mentees = server.read_entries("data/mentees.csv")
-    groups = [Group(m) for m in mentors]
+def test_mentor_time_assignments_not_empty_frequency(prepared_people) -> None:
+    mentors, mentees, groups = prepared_people
 
     r = FrequencyStrategy(groups, mentees)
     r.set_meeting_times()
@@ -45,12 +31,8 @@ def test_mentor_time_assignments_not_empty_frequency() -> None:
         assert g.meeting_time != ""
 
 
-def test_mentor_time_assignments_from_availability_frequency() -> None:
-    server = DataServer()
-
-    mentors = server.read_entries("data/mentors.csv")
-    mentees = server.read_entries("data/mentees.csv")
-    groups = [Group(m) for m in mentors]
+def test_mentor_time_assignments_from_availability_frequency(prepared_people) -> None:
+    mentors, mentees, groups = prepared_people
 
     r = RandomStrategy(groups, mentees)
     r.set_meeting_times()

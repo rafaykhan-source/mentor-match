@@ -1,18 +1,8 @@
-from mentor_match.dataserver import DataServer
-from mentor_match.mentee_strategies import SmallestGroupStrategy
-from mentor_match.mentor_strategies import FrequencyStrategy, RandomStrategy
-from mentor_match.models import Group
+from mentor_match.mentee_strategies import RandomGroupStrategy, SmallestGroupStrategy
 
 
-def test_mentee_time_assignments_not_empty_random() -> None:
-    server = DataServer()
-
-    mentors = server.read_entries("data/mentors.csv")
-    mentees = server.read_entries("data/mentees.csv")
-    groups = [Group(m) for m in mentors]
-
-    p = RandomStrategy(groups, mentees)
-    p.set_meeting_times()
+def test_mentee_time_assignments_not_empty_random_smallest(random_times) -> None:
+    groups, mentees = random_times
 
     r = SmallestGroupStrategy(groups, mentees)
     r.assign_mentees()
@@ -21,15 +11,10 @@ def test_mentee_time_assignments_not_empty_random() -> None:
         assert g.meeting_time != ""
 
 
-def test_mentee_time_assignments_from_availability_random() -> None:
-    server = DataServer()
-
-    mentors = server.read_entries("data/mentors.csv")
-    mentees = server.read_entries("data/mentees.csv")
-    groups = [Group(m) for m in mentors]
-
-    p = RandomStrategy(groups, mentees)
-    p.set_meeting_times()
+def test_mentee_time_assignments_from_availability_random_smallest(
+    random_times,
+) -> None:
+    groups, mentees = random_times
 
     r = SmallestGroupStrategy(groups, mentees)
     r.assign_mentees()
@@ -39,15 +24,29 @@ def test_mentee_time_assignments_from_availability_random() -> None:
             assert g.meeting_time in m.availability
 
 
-def test_mentee_time_assignments_not_empty_frequency() -> None:
-    server = DataServer()
+def test_mentee_time_assignments_not_empty_random_random(random_times) -> None:
+    groups, mentees = random_times
 
-    mentors = server.read_entries("data/mentors.csv")
-    mentees = server.read_entries("data/mentees.csv")
-    groups = [Group(m) for m in mentors]
+    r = RandomGroupStrategy(groups, mentees)
+    r.assign_mentees()
 
-    p = FrequencyStrategy(groups, mentees)
-    p.set_meeting_times()
+    for g in groups:
+        assert g.meeting_time != ""
+
+
+def test_mentee_time_assignments_from_availability_random_random(random_times) -> None:
+    groups, mentees = random_times
+
+    r = RandomGroupStrategy(groups, mentees)
+    r.assign_mentees()
+
+    for g in groups:
+        for m in g.mentees:
+            assert g.meeting_time in m.availability
+
+
+def test_mentee_time_assignments_not_empty_frequency(frequency_times) -> None:
+    groups, mentees = frequency_times
 
     r = SmallestGroupStrategy(groups, mentees)
     r.assign_mentees()
@@ -56,17 +55,33 @@ def test_mentee_time_assignments_not_empty_frequency() -> None:
         assert g.meeting_time != ""
 
 
-def test_mentee_time_assignments_from_availability_frequency() -> None:
-    server = DataServer()
-
-    mentors = server.read_entries("data/mentors.csv")
-    mentees = server.read_entries("data/mentees.csv")
-    groups = [Group(m) for m in mentors]
-
-    p = FrequencyStrategy(groups, mentees)
-    p.set_meeting_times()
+def test_mentee_time_assignments_from_availability_frequency(frequency_times) -> None:
+    groups, mentees = frequency_times
 
     r = SmallestGroupStrategy(groups, mentees)
+    r.assign_mentees()
+
+    for g in groups:
+        for m in g.mentees:
+            assert g.meeting_time in m.availability
+
+
+def test_mentee_time_assignments_not_empty_frequency_random(frequency_times) -> None:
+    groups, mentees = frequency_times
+
+    r = RandomGroupStrategy(groups, mentees)
+    r.assign_mentees()
+
+    for g in groups:
+        assert g.meeting_time != ""
+
+
+def test_mentee_time_assignments_from_availability_frequency_random(
+    frequency_times,
+) -> None:
+    groups, mentees = frequency_times
+
+    r = RandomGroupStrategy(groups, mentees)
     r.assign_mentees()
 
     for g in groups:

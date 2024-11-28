@@ -1,6 +1,8 @@
 import pytest
 
-from mentor_match.models import Person
+from mentor_match.dataserver import DataServer
+from mentor_match.mentor_strategies import FrequencyStrategy, RandomStrategy
+from mentor_match.models import Group, Person
 
 
 @pytest.fixture
@@ -42,3 +44,33 @@ def times() -> list[str]:
 @pytest.fixture
 def time() -> str:
     return "5:00-6:00pm Th"
+
+
+@pytest.fixture
+def prepared_people() -> tuple[list[Person], list[Person], list[Group]]:
+    server = DataServer()
+
+    mentors = server.read_people("data/original/mentors.json")
+    mentees = server.read_people("data/original/mentees.json")
+    groups = [Group(m) for m in mentors]
+    return mentors, mentees, groups
+
+
+@pytest.fixture
+def random_times(prepared_people) -> tuple[list[Group], list[Person]]:
+    mentors, mentees, groups = prepared_people
+
+    p = RandomStrategy(groups, mentees)
+    p.set_meeting_times()
+
+    return groups, mentees
+
+
+@pytest.fixture
+def frequency_times(prepared_people) -> tuple[list[Group], list[Person]]:
+    mentors, mentees, groups = prepared_people
+
+    p = FrequencyStrategy(groups, mentees)
+    p.set_meeting_times()
+
+    return groups, mentees

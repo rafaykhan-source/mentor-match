@@ -8,8 +8,8 @@ from mentor_match.models import Group, Person
 __all__ = [
     "DataServer",
     "FrequencyStrategy",
-    "RandomStrategy",
     "Group",
     "Person",
+    "RandomStrategy",
     "SmallestGroupStrategy",
 ]
