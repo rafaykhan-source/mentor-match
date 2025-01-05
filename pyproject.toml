@@ -50,6 +50,7 @@ select = [
     "PERF", # Perflint
     "RUF", # Ruff-specific rules
 ]
+exclude = ["noxfile.py"]
 ignore = ["ANN101", "D100", "D103", "D102"]
 
 [tool.ruff.lint.pydocstyle]
