@@ -1,6 +1,7 @@
 """The strategies responsible for selecting a weekly meeting time for mentors."""
 
 import random
+from abc import ABC, abstractmethod
 from collections import Counter
 from dataclasses import dataclass
 
@@ -8,20 +9,32 @@ from mentor_match.models import Group, Person
 
 
 @dataclass
-class RandomStrategy:
+class TimeStrategy(ABC):
+    """Selects weekly meetings times for mentors."""
+
+    groups: list[Group]
+    mentees: list[Person]
+
+    @abstractmethod
+    def set_meeting_times(self) -> None:
+        """Sets the meething times for the set of mentors."""
+
+
+@dataclass
+class RandomTimeStrategy(TimeStrategy):
     """Selects weekly meeting times for mentors randomly from their availability."""
 
     groups: list[Group]
     mentees: list[Person]
 
     def set_meeting_times(self) -> None:
-        """Sets the meeting times for the set of mentors."""
+        """Sets the meeting times for the mentors."""
         for g in self.groups:
             g.meeting_time = random.choice(g.mentor.availability)
 
 
 @dataclass
-class FrequencyStrategy:
+class FrequencyTimeStrategy(TimeStrategy):
     """Selects weekly meeting times for mentors based on availability frequency."""
 
     groups: list[Group]

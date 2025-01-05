@@ -1,7 +1,7 @@
 import pytest
 
 from mentor_match.dataserver import DataServer
-from mentor_match.mentor_strategies import FrequencyStrategy, RandomStrategy
+from mentor_match.mentor_strategies import FrequencyTimeStrategy, RandomTimeStrategy
 from mentor_match.models import Group, Person
 
 
@@ -60,7 +60,7 @@ def prepared_people() -> tuple[list[Person], list[Person], list[Group]]:
 def random_times(prepared_people) -> tuple[list[Group], list[Person]]:
     mentors, mentees, groups = prepared_people
 
-    p = RandomStrategy(groups, mentees)
+    p = RandomTimeStrategy(groups, mentees)
     p.set_meeting_times()
 
     return groups, mentees
@@ -70,7 +70,7 @@ def random_times(prepared_people) -> tuple[list[Group], list[Person]]:
 def frequency_times(prepared_people) -> tuple[list[Group], list[Person]]:
     mentors, mentees, groups = prepared_people
 
-    p = FrequencyStrategy(groups, mentees)
+    p = FrequencyTimeStrategy(groups, mentees)
     p.set_meeting_times()
 
     return groups, mentees
