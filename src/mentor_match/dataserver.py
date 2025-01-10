@@ -1,5 +1,7 @@
 """This module is responsible for reading data for the mentor match program."""
 
+import ast
+import csv
 import json
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
@@ -32,6 +34,44 @@ class FileInputStrategy(ABC):
         Returns:
             list[Group]: The groups.
         """
+
+
+@dataclass
+class CSVInputStrategy(FileInputStrategy):
+    """This class is for reading data from csv."""
+
+    def read_people(self, file_path: str) -> list[Person]:
+        """Returns the list of people at file_path.
+
+        Args:
+            file_path (str): The file path of the people.
+
+        Returns:
+            list[Person]: The people.
+        """
+        with open(file_path) as csv_file:
+            reader = csv.DictReader(csv_file)
+            return [
+                Person(
+                    r["first_name"],
+                    r["last_name"],
+                    r["email"],
+                    ast.literal_eval(r["availability"]),
+                )
+                for r in reader
+            ]
+
+    def read_groups(self, file_path: str) -> list[Group]:
+        """Returns the list of groups at file_path.
+
+        Args:
+            file_path (str): The file path of the groups.
+
+        Returns:
+            list[Group]: The groups.
+        """
+        del file_path
+        return []
 
 
 @dataclass
