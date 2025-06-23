@@ -53,10 +53,10 @@ class CSVInputStrategy(FileInputStrategy):
             reader = csv.DictReader(csv_file)
             return [
                 Person(
-                    r["first_name"],
-                    r["last_name"],
-                    r["email"],
-                    ast.literal_eval(r["availability"]),
+                    first_name=r["first_name"],
+                    last_name=r["last_name"],
+                    email=r["email"],
+                    availability=ast.literal_eval(r["availability"]),
                 )
                 for r in reader
             ]
@@ -90,7 +90,14 @@ class JSONInputStrategy(FileInputStrategy):
         with open(file_path) as json_file:
             raw_people = json.load(json_file)
             return [
-                Person(p["first_name"], p["last_name"], p["email"], p["availability"])
+                Person(
+                    first_name=p["first_name"],
+                    preferred=p.get("preferred", ""),
+                    last_name=p["last_name"],
+                    username=p.get("username", ""),
+                    email=p.get("email", ""),
+                    availability=p["availability"],
+                )
                 for p in raw_people
             ]
 

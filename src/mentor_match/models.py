@@ -9,8 +9,10 @@ class Person:
 
     first_name: str
     last_name: str
-    email: str
     availability: list[str]
+    preferred: str = ""
+    username: str = ""
+    email: str = ""
 
     def __eq__(self, other: object) -> bool:
         """Returns whether the two instances are equal.
@@ -22,8 +24,11 @@ class Person:
             bool: Whether the two instances are equal.
         """
         if isinstance(other, Person):
-            return self.email == other.email
-        return False
+            if self.username:
+                return self.username == other.username
+            if self.email:
+                return self.email == other.email
+        return super().__eq__(other)
 
     def __str__(self) -> str:
         """Returns a human readable string representation of the object.
