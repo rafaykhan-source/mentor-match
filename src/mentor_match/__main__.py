@@ -14,7 +14,7 @@ def get_args() -> argparse.Namespace:
         prog="mentor-match",
         description="Forms mentorship groups between students and mentors.",
     )
-    parser.add_argument("operation", help="match, rematch, or clean")
+    parser.add_argument("operation", help="match or rematch")
     return parser.parse_args()
 
 
@@ -36,13 +36,9 @@ def initial_match() -> None:
     # print("\n".join([str(len(g.mentees)) for g in groups]))
 
 
-def clean() -> None:
+def rematch() -> None:
     c = RematchCleaner()
     c.update_rematchees()
-
-
-def rematch() -> None:
-    clean()
 
     s = DataServer()
     rematchees = s.read_people("data/updates/rematchees.json")
@@ -60,8 +56,6 @@ def main() -> None:
             initial_match()
         case "rematch":
             rematch()
-        case "clean":
-            clean()
 
 
 main()
