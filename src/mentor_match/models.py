@@ -24,11 +24,12 @@ class Person:
             bool: Whether the two instances are equal.
         """
         if isinstance(other, Person):
-            if self.username:
-                return self.username == other.username
-            if self.email:
-                return self.email == other.email
-        return super().__eq__(other)
+            return (
+                (self.username == other.username)
+                or (self.email == other.email)
+                or (super().__eq__(other))
+            )
+        return False
 
     def __str__(self) -> str:
         """Returns a human readable string representation of the object.
