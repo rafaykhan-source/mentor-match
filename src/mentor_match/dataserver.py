@@ -115,17 +115,21 @@ class JSONInputStrategy(FileInputStrategy):
             groups = []
             for g in raw_groups:
                 mentor = Person(
-                    g["mentor"]["first_name"],
-                    g["mentor"]["last_name"],
-                    g["mentor"]["email"],
-                    g["mentor"]["availability"],
+                    first_name=g["mentor"]["first_name"],
+                    preferred=g["mentor"]["preferred"],
+                    last_name=g["mentor"]["last_name"],
+                    username=g["mentor"]["username"],
+                    email=g["mentor"]["email"],
+                    availability=g["mentor"]["availability"],
                 )
                 mentees = [
                     Person(
-                        m["first_name"],
-                        m["last_name"],
-                        m["email"],
-                        m["availability"],
+                        first_name=m["first_name"],
+                        preferred=m["preferred"],
+                        last_name=m["last_name"],
+                        username=m["username"],
+                        email=m["email"],
+                        availability=m["availability"],
                     )
                     for m in g["mentees"]
                 ]
