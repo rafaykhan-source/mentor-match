@@ -1,5 +1,4 @@
 __pycache__/
-*.lock
 *.py[oc]
 build/
 dist/
@@ -7,4 +6,3 @@ wheels/
 data/placements
 data/updates
 *.egg-info
-.python-version
